@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+	version="3.0">
+	<persistence-unit name="ExamWebPU"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>vn.feylix.entity.User_24162099</class>
+		<class>vn.feylix.entity.Book_24162099</class>
+		<class>vn.feylix.entity.Author_24162099</class>
+		<class>vn.feylix.entity.Rating_24162099</class>
+		<class>vn.feylix.entity.BookAuthor_24162099</class>
+		<class>vn.feylix.entity.Order_24162099</class>
+		<class>vn.feylix.entity.OrderItem_24162099</class>
+		<properties>
+			<property name="jakarta.persistence.jdbc.driver"
+				value="com.mysql.cj.jdbc.Driver" />
+			<property name="jakarta.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/web_exam_24162099?useSSL=false&amp;serverTimezone=Asia/Ho_Chi_Minh&amp;characterEncoding=UTF-8" />
+			<property name="jakarta.persistence.jdbc.user" value="root" />
+			<property name="jakarta.persistence.jdbc.password"
+				value="123456" />
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.MySQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="none" />
+			<property name="hibernate.show_sql" value="false" />
+		</properties>
+	</persistence-unit>
+</persistence>

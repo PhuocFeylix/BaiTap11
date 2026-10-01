@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+  <mapping path="/login" exclude="true"/>
+  <mapping path="/register" exclude="true"/>
+  <mapping path="/verify-otp" exclude="true"/>
+  <mapping path="/admin/*" decorator="admin.jsp"/>
+  <mapping path="/*" decorator="web.jsp"/>
+</sitemesh>

@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #1e293b;
+}
+
+.book-card img {
+    height: 260px;
+    object-fit: cover;
+}
+
+.rating {
+    color: #e0a800;
+}
+
+.cover {
+    max-height: 420px;
+    object-fit: cover;
+}
+
+/* Giao diện xác thực: login / register / OTP */
+.auth-page {
+    background:
+        radial-gradient(circle at 10% 10%, rgba(13,110,253,.08), transparent 28%),
+        radial-gradient(circle at 90% 90%, rgba(111,66,193,.08), transparent 30%);
+    border-radius: 24px;
+}
+
+.auth-card {
+    background: #fff;
+}
+
+.auth-input::placeholder {
+    color: #94a3b8;
+}
+
+.auth-btn {
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.auth-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(13,110,253,.16);
+}

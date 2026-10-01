@@ -1,0 +1,9 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt"%>
+<!doctype html><html><head><title>Lịch sử đặt hàng</title></head><body>
+<div class="d-flex justify-content-between align-items-center mb-3"><h2>Lịch sử đặt hàng</h2><a class="btn btn-outline-primary" href="${pageContext.request.contextPath}/home">Mua thêm sách</a></div>
+<form method="get" action="${pageContext.request.contextPath}/orders" class="row g-2 mb-4"><div class="col-md-5"><select class="form-select" name="status"><option value="">Tất cả trạng thái</option><c:forEach var="s" items="${statuses}"><option value="${s.name}" ${selectedStatus == s.name ? 'selected' : ''}>${s.label}</option></c:forEach></select></div><div class="col-auto"><button class="btn btn-primary">Lọc</button></div></form>
+<c:choose><c:when test="${empty orders}"><div class="alert alert-info">Không có đơn hàng phù hợp.</div></c:when><c:otherwise>
+<c:forEach var="o" items="${orders}"><div class="card shadow-sm mb-3"><div class="card-body"><div class="d-flex justify-content-between"><div><b>Đơn #${o.id}</b><span class="badge text-bg-secondary ms-2">${o.status.label}</span></div><span class="text-muted">${o.orderDate}</span></div><hr><c:forEach var="item" items="${o.items}"><div class="d-flex justify-content-between py-1"><span>${item.book.title} × ${item.quantity}</span><span><fmt:formatNumber value="${item.subtotal}" type="number" maxFractionDigits="0"/> đ</span></div></c:forEach><div class="text-end mt-2"><b>Tổng: <fmt:formatNumber value="${o.totalAmount}" type="number" maxFractionDigits="0"/> đ</b><a class="btn btn-sm btn-outline-primary ms-3" href="${pageContext.request.contextPath}/order-detail?id=${o.id}">Chi tiết</a></div></div></div></c:forEach>
+</c:otherwise></c:choose></body></html>
